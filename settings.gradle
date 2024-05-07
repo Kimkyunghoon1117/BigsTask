@@ -1,0 +1,12 @@
+rootProject.name = 'root'
+include 'inquire-application'
+project(':inquire-application').projectDir = file('modules/application/inquire-application')
+
+include 'sync-application'
+project(':sync-application').projectDir = file('modules/application/sync-application')
+
+include 'forecast-domain'
+project(':forecast-domain').projectDir = file('modules/domain/forecast-domain')
+
+include 'forecast-internal'
+project(':forecast-internal').projectDir = file('modules/domain/forecast-internal')

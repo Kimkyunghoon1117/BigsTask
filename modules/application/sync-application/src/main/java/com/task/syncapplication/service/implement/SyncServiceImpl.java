@@ -63,7 +63,7 @@ public class SyncServiceImpl implements SyncService {
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
 //
 //        dto.setUrl("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst");
-//        dto.setServiceKey("PQexRtUKq8nvl0EwuruPgtIuaJVrlP2VDldqBwqF1bgZemxHYaSUj5USsQ9S040rGLig7wDkXG2eXofij1%2Bvag%3D%3D");
+        dto.setServiceKey("PQexRtUKq8nvl0EwuruPgtIuaJVrlP2VDldqBwqF1bgZemxHYaSUj5USsQ9S040rGLig7wDkXG2eXofij1%2Bvag%3D%3D");
 //        dto.setPageNo(1);
 //        dto.setNumOfRows(1000);
 //        dto.setDataType("JSON");

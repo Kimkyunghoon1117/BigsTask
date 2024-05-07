@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+</head>
+<body>
+<h1> Bigs Back-End 개발자 실습 테스트 </h1><br>
+<h2> 2. 단기 예보를 조회 하는 API </h2>
+<a> (GET 요청시, DB 에 저장된 데이터를 조회합니다.
+    데이터가 없을 경우, Http status 204 오류를 응답해야 합니다. )</a>
+<div><button type="button" id="get_btn">GET 요청하기</button></div>
+<div id="forecast_table"></div>
+<script>
+    $(document).ready(function(){
+
+        let displayForecastTable = function(forecastList) {
+            let table = '<table border="1"><tr><th>기준일</th><th>기준시간</th><th>카테고리</th><th>예보일</th><th>예보시간</th><th>예보값</th><th>NX</th><th>NY</th></tr>';
+            forecastList.forEach(function(item) {
+                table += '<tr>';
+                table += '<td>' + item.baseDate + '</td>';
+                table += '<td>' + item.baseTime + '</td>';
+                table += '<td>' + item.category + '</td>';
+                table += '<td>' + item.fcstDate + '</td>';
+                table += '<td>' + item.fcstTime + '</td>';
+                table += '<td>' + item.fcstValue + '</td>';
+                table += '<td>' + item.nx + '</td>';
+                table += '<td>' + item.ny + '</td>';
+                table += '</tr>';
+            });
+            table += '</table>';
+
+            $('#forecast_table').html(table);
+        }
+
+        $("#get_btn").click(function(){
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8001/api/task/inquire",
+                success: function (response) {
+                    console.log("성공:", response);
+                    if(response && response.forecastList) {
+                        displayForecastTable(response.forecastList);
+                        alert("데이터요청 성공!");
+                    }
+                    else
+                        alert("데이터가 없습니다!");
+
+                },
+                error: function (error) {
+                    console.error("실패:", error);
+                    alert("데이터요청 실패!");
+                }
+            }); // $.ajax()
+        });
+
+    });
+</script>
+</body>
+</html>

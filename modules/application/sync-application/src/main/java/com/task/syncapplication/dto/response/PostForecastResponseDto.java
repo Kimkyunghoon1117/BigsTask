@@ -18,9 +18,4 @@ public class PostForecastResponseDto extends ResponseDto {
         PostForecastResponseDto result = new PostForecastResponseDto();
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
-
-    public static ResponseEntity<ResponseDto> noContent(){
-        ResponseDto result = new ResponseDto(ResponseCode.NO_CONTENT,ResponseMessage.NO_CONTENT);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(result);
-    }
 }

@@ -1,0 +1,57 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+</head>
+<body>
+    <h1> Bigs Back-End 개발자 실습 테스트 </h1><br>
+    <h2> 1. 단기 예보를 DB에 저장하게 하는 API </h2>
+    <a> (POST 요청시 공공데이터 포털의 API를 호출하여 바로 DB 에 적재합니다.)</a><br>
+    <a>경기도 의정부시 문충로74 지역 <b>nx:61,ny:130</b> DATE는 하루전입니다. </a>
+    <div><button type="button" id="post_btn">POST 요청하기</button></div>
+
+    <script>
+
+        let now = new Date();
+        now.setDate(now.getDate()-1);
+        let year = now.getFullYear();
+        let month = ('0' + (now.getMonth() + 1)).slice(-2);
+        let day = ('0' + now.getDate()).slice(-2);
+        let date = year + month + day;
+
+        $(document).ready(function(){
+
+            $("#post_btn").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8000/api/task/sync",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                    "url": "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst",
+                    "pageNo": "1",
+                    "numOfRows": "1000",
+                    "dataType": "JSON",
+                    "base_date": date,
+                    "base_time": "0600",
+                    "nx": "61",
+                    "ny": "130"
+                    }),
+                    success: function (response) {
+                        console.log("성공:", response);
+                        alert("데이터저장 성공!");
+                    },
+                    error: function (error) {
+                        console.error("실패:", error);
+                        alert("데이터저장 실패!");
+                    }
+                }); // $.ajax()
+            });
+
+        });
+    </script>
+</body>
+</html>

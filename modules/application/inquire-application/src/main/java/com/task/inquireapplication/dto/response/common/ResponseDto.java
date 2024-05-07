@@ -1,4 +1,4 @@
-package com.task.syncapplication.dto.response.common;
+package com.task.inquireapplication.dto.response.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

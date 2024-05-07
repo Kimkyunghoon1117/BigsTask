@@ -18,11 +18,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -62,19 +58,19 @@ public class SyncServiceImpl implements SyncService {
     @Override
     public List<ForecastItem> callForecastApi(PostForecastRequestDto dto) throws UnsupportedEncodingException, URISyntaxException, JsonProcessingException {
         // dto 임시 설정
-        Date now = Date.from(Instant.now().minus(1, ChronoUnit.DAYS));
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
-
-        dto.setUrl("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst");
-        dto.setServiceKey("PQexRtUKq8nvl0EwuruPgtIuaJVrlP2VDldqBwqF1bgZemxHYaSUj5USsQ9S040rGLig7wDkXG2eXofij1%2Bvag%3D%3D");
-        dto.setPageNo(1);
-        dto.setNumOfRows(1000);
-        dto.setDataType("JSON");
-        dto.setBase_date(simpleDateFormat.format(now));
-        dto.setBase_time("0500");
-        dto.setNx(61);
-        dto.setNy(130);
+//        Date now = Date.from(Instant.now().minus(1, ChronoUnit.DAYS));
+//
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+//
+//        dto.setUrl("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst");
+//        dto.setServiceKey("PQexRtUKq8nvl0EwuruPgtIuaJVrlP2VDldqBwqF1bgZemxHYaSUj5USsQ9S040rGLig7wDkXG2eXofij1%2Bvag%3D%3D");
+//        dto.setPageNo(1);
+//        dto.setNumOfRows(1000);
+//        dto.setDataType("JSON");
+//        dto.setBase_date(simpleDateFormat.format(now));
+//        dto.setBase_time("0500");
+//        dto.setNx(61);
+//        dto.setNy(130);
 
         // RestTemplate 생성
         RestTemplate restTemplate = new RestTemplate();

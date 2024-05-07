@@ -3,6 +3,7 @@
 ![image](https://github.com/Kimkyunghoon1117/BigsTask/assets/136357654/0fe42cee-a4c7-4c48-9341-bb5d7920246f)
 
 ### 2. 단기 예보를 DB에 저장하게 하는 API(http://localhost:8000/) - 경기도 의정부시 문충로74 지역(nx:61, ny:130) 전날 데이터를 DB에 저장합니다.
+
 ![image](https://github.com/Kimkyunghoon1117/BigsTask/assets/136357654/0541e503-e727-4eb7-9c50-4564089fabcb)
 
 ![image](https://github.com/Kimkyunghoon1117/BigsTask/assets/136357654/f87311d8-6425-4ef7-a4ab-da3ba9208ebd)
